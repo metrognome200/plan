@@ -309,7 +309,7 @@ function saveMemberStats(member) {
   const goatsInput = row.querySelector('.goats-input');
   const tonsInput = row.querySelector('.tons-input');
 
-  updateMemberStats(member, 'goats', parseFloat(goatsInput.value) || 0);
+  updateMemberStats(member, 'goats', parseFloat(goatsInput.value.replace(/,/g, '')) || 0);
   updateMemberStats(member, 'tons', parseFloat(tonsInput.value) || 0);
 }
 
@@ -357,8 +357,8 @@ function renderMemberStats() {
     row.innerHTML = `
       <td>${member}</td>
       <td>
-        <input type="number" class="goats-input" value="${formatNumber(stats.goats)}" 
-               onchange="updateMemberStats('${member}', 'goats', this.value)" 
+        <input type="text" class="goats-input" value="${formatNumber(stats.goats)}" 
+               onchange="updateMemberStats('${member}', 'goats', this.value.replace(/,/g, ''))" 
                min="0" step="1000" placeholder="Enter goats">
       </td>
       <td class="points">${formatNumber(stats.goatPoints)}</td>
@@ -703,14 +703,17 @@ document.addEventListener('DOMContentLoaded', () => {
   updateStatsSummary();
 
   // Add some sample team members for demonstration
-  teamMembers = ['Alice', 'Bob', 'Charlie', 'Diana', 'Eve', 'Frank'];
-  teamMembers.forEach(member => {
-    memberStats[member] = {
-      goats: 0,
-      goatPoints: 0,
-      tons: 0,
-      tonPoints: 0
-    };
+  const sampleMembers = ['Alice', 'Bob', 'Charlie', 'Diana', 'Eve', 'Frank'];
+  sampleMembers.forEach(member => {
+    if (!teamMembers.includes(member)) {
+      teamMembers.push(member);
+      memberStats[member] = {
+        goats: 0,
+        goatPoints: 0,
+        tons: 0,
+        tonPoints: 0
+      };
+    }
   });
   renderTeamMembers();
   renderMemberStats();
