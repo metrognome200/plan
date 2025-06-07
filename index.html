@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Team Leaderboard Planner</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🏆 Team Leaderboard Planner</h1>
+      <p>Drag and drop team members to plan your weekly strategy</p>
+    </header>
+
+    <div class="leaderboards">
+      <div class="leaderboard-section">
+        <h2>🐐 Goats Leaderboard</h2>
+        <div class="leaderboard" id="goatsLeaderboard">
+          <div class="leaderboard-position" data-position="1">
+            <span class="position">1st 🥇</span>
+            <div class="drop-zone" data-board="goats" data-position="1">
+              <span class="placeholder">Drag member here</span>
+            </div>
+            <span class="prize">7.5 tons</span>
+          </div>
+          <div class="leaderboard-position" data-position="2">
+            <span class="position">2nd 🥈</span>
+            <div class="drop-zone" data-board="goats" data-position="2">
+              <span class="placeholder">Drag member here</span>
+            </div>
+            <span class="prize">5 tons</span>
+          </div>
+          <div class="leaderboard-position" data-position="3">
+            <span class="position">3rd 🥉</span>
+            <div class="drop-zone" data-board="goats" data-position="3">
+              <span class="placeholder">Drag member here</span>
+            </div>
+            <span class="prize">2.5 tons</span>
+          </div>
+          <div class="leaderboard-position" data-position="4">
+            <span class="position">4th 🏅</span>
+            <div class="drop-zone" data-board="goats" data-position="4">
+              <span class="placeholder">Drag member here</span>
+            </div>
+            <span class="prize">2.5 tons</span>
+          </div>
+          <div class="leaderboard-position" data-position="5">
+            <span class="position">5th 🎖️</span>
+            <div class="drop-zone" data-board="goats" data-position="5">
+              <span class="placeholder">Drag member here</span>
+            </div>
+            <span class="prize">1.25 tons</span>
+          </div>
+          <div class="leaderboard-position" data-position="6">
+            <span class="position">6th</span>
+            <div class="drop-zone" data-board="goats" data-position="6">
+              <span class="placeholder">Drag member here</span>
+            </div>
+            <span class="prize">1.25 tons</span>
+          </div>
+          <div class="leaderboard-position" data-position="7">
+            <span class="position">7th</span>
+            <div class="drop-zone" data-board="goats" data-position="7">
+              <span class="placeholder">Drag member here</span>
+            </div>
+            <span class="prize">1.25 tons</span>
+          </div>
+          <div class="leaderboard-position" data-position="8">
+            <span class="position">8th</span>
+            <div class="drop-zone" data-board="goats" data-position="8">
+              <span class="placeholder">Drag member here</span>
+            </div>
+            <span class="prize">1.25 tons</span>
+          </div>
+          <div class="leaderboard-position" data-position="9">
+            <span class="position">9th</span>
+            <div class="drop-zone" data-board="goats" data-position="9">
+              <span class="placeholder">Drag member here</span>
+            </div>
+            <span class="prize">1.25 tons</span>
+          </div>
+          <div class="leaderboard-position" data-position="10">
+            <span class="position">10th</span>
+            <div class="drop-zone" data-board="goats" data-position="10">
+              <span class="placeholder">Drag member here</span>
+            </div>
+            <span class="prize">1.25 tons</span>
+          </div>
+        </div>
+        <div class="board-summary" id="goatsSummary">
+          <h4>Goats Strategy Summary</h4>
+          <div class="summary-content"></div>
+        </div>
+      </div>
+
+      <div class="team-controls">
+        <div class="team-setup">
+          <h3>Team Members</h3>
+          <div class="team-input">
+            <input type="text" id="memberInput" placeholder="Add team member name">
+            <button onclick="addTeamMember()">Add Member</button>
+          </div>
+          <div class="team-list" id="teamList">
+            <!-- Team members will be added here -->
+          </div>
+        </div>
+
+        <div class="member-stats">
+          <h3>Member Stats & Goals</h3>
+          <div class="stats-table-container">
+            <table class="stats-table">
+              <thead>
+                <tr>
+                  <th>Member</th>
+                  <th>Goats</th>
+                  <th>Goat Points</th>
+                  <th>Tons</th>
+                  <th>Ton Points</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="memberStatsTable">
+                <!-- Stats rows will be added here -->
+              </tbody>
+            </table>
+          </div>
+          <div class="stats-summary" id="statsSummary">
+            <h4>Team Stats Summary</h4>
+            <div class="summary-content"></div>
+          </div>
+        </div>
+
+        <div class="summary">
+          <h3>Prize Distribution</h3>
+          <div class="prize-info">
+            <div class="prize-item">🥇 1st: 7.5 tons</div>
+            <div class="prize-item">🥈 2nd: 5 tons</div>
+            <div class="prize-item">🥉 3rd: 2.5 tons</div>
+            <div class="prize-item">🏅 4th: 2.5 tons</div>
+            <div class="prize-item">🎖️ 5th-10th: 1.25 tons each</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="leaderboard-section">
+        <h2>🎨 Toons Leaderboard</h2>
+        <div class="leaderboard" id="toonsLeaderboard">
+          <div class="leaderboard-position" data-position="1">
+            <span class="position">1st 🥇</span>
+            <div class="drop-zone" data-board="toons" data-position="1">
+              <span class="placeholder">Drag member here</span>
+            </div>
+            <span class="prize">7.5 tons</span>
+          </div>
+          <div class="leaderboard-position" data-position="2">
+            <span class="position">2nd 🥈</span>
+            <div class="drop-zone" data-board="toons" data-position="2">
+              <span class="placeholder">Drag member here</span>
+            </div>
+            <span class="prize">5 tons</span>
+          </div>
+          <div class="leaderboard-position" data-position="3">
+            <span class="position">3rd 🥉</span>
+            <div class="drop-zone" data-board="toons" data-position="3">
+              <span class="placeholder">Drag member here</span>
+            </div>
+            <span class="prize">2.5 tons</span>
+          </div>
+          <div class="leaderboard-position" data-position="4">
+            <span class="position">4th 🏅</span>
+            <div class="drop-zone" data-board="toons" data-position="4">
+              <span class="placeholder">Drag member here</span>
+            </div>
+            <span class="prize">2.5 tons</span>
+          </div>
+          <div class="leaderboard-position" data-position="5">
+            <span class="position">5th 🎖️</span>
+            <div class="drop-zone" data-board="toons" data-position="5">
+              <span class="placeholder">Drag member here</span>
+            </div>
+            <span class="prize">1.25 tons</span>
+          </div>
+          <div class="leaderboard-position" data-position="6">
+            <span class="position">6th</span>
+            <div class="drop-zone" data-board="toons" data-position="6">
+              <span class="placeholder">Drag member here</span>
+            </div>
+            <span class="prize">1.25 tons</span>
+          </div>
+          <div class="leaderboard-position" data-position="7">
+            <span class="position">7th</span>
+            <div class="drop-zone" data-board="toons" data-position="7">
+              <span class="placeholder">Drag member here</span>
+            </div>
+            <span class="prize">1.25 tons</span>
+          </div>
+          <div class="leaderboard-position" data-position="8">
+            <span class="position">8th</span>
+            <div class="drop-zone" data-board="toons" data-position="8">
+              <span class="placeholder">Drag member here</span>
+            </div>
+            <span class="prize">1.25 tons</span>
+          </div>
+          <div class="leaderboard-position" data-position="9">
+            <span class="position">9th</span>
+            <div class="drop-zone" data-board="toons" data-position="9">
+              <span class="placeholder">Drag member here</span>
+            </div>
+            <span class="prize">1.25 tons</span>
+          </div>
+          <div class="leaderboard-position" data-position="10">
+            <span class="position">10th</span>
+            <div class="drop-zone" data-board="toons" data-position="10">
+              <span class="placeholder">Drag member here</span>
+            </div>
+            <span class="prize">1.25 tons</span>
+          </div>
+        </div>
+        <div class="board-summary" id="toonsSummary">
+          <h4>Toons Strategy Summary</h4>
+          <div class="summary-content"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button onclick="clearAllBoards()" class="clear-btn">Clear All Boards</button>
+      <button onclick="exportStrategy()" class="export-btn">Export Strategy</button>
+      <button onclick="showImportDialog()" class="import-btn">Import Strategy</button>
+    </div>
+
+    <!-- Import Dialog -->
+    <div id="importDialog" class="import-dialog" style="display: none;">
+      <div class="import-dialog-content">
+        <h3>Import Strategy</h3>
+        <p>Paste your exported strategy data below:</p>
+        <textarea id="importText" rows="10" placeholder="Paste your strategy data here..."></textarea>
+        <div class="import-dialog-buttons">
+          <button onclick="importStrategy()" class="import-confirm-btn">Import</button>
+          <button onclick="closeImportDialog()" class="import-cancel-btn">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
